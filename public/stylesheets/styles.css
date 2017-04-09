@@ -48,31 +48,6 @@ html div {
   color: grey;
 }
 
-@media (max-width: 650px) {
-  .contributors {
-    flex-wrap: wrap;
-  }
-  .contributor-name {
-    font-size: 2.5vw;
-  }
-  .img-portrait {
-    width: 120px;
-    border-radius: 50%;
-    display: block;
-    margin: auto;
-  }
-  .contributor {
-    padding: 3px;
-    padding-bottom: 20px;
-  }
-  .contributor-heading {
-    font-size: 8vw;
-  }
-  .fa {
-    left: 115px;
-  }
-}
-
 /*Loader*/
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
@@ -105,4 +80,31 @@ html div {
 .example-leave.example-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
+}
+
+/*Media Queries*/
+@media (max-width: 650px) {
+  .contributors {
+    padding: 5px;
+    flex-wrap: wrap;
+  }
+  .contributor-name {
+    font-size: 2.5vw;
+  }
+  .img-portrait {
+    width: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+  }
+  .contributor-item {
+    padding: 3px;
+    padding-bottom: 20px;
+  }
+  .contributor-heading {
+    font-size: 8vw;
+  }
+  .fa {
+    left: 115px;
+  }
 }
