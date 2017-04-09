@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Contributor extends React.Component{
   constructor(props){
@@ -26,7 +27,6 @@ class Contributor extends React.Component{
       { id: 67, firstName: "Roger", lastName: "Rabbit", photo:"https://placekitten.com/200/206" },
       { id: 98, firstName: "Pen", lastName: "Pineapple", photo:"https://placekitten.com/200/207" }
     ];
-
     this.props.resetContributors(contributors);
   }
 
@@ -37,8 +37,10 @@ class Contributor extends React.Component{
     } else if (contributors.length > 0) {
       contributors = contributors.slice(0,6).map(contributor => {
         return (
-          <div className="contributor" key={contributor.id}
-            onClick={() => this.removeContributor(contributor.id)}>
+          <div key={contributor.id} className="contributor-item">
+            <i className="fa fa-times" aria-hidden="true"
+              key={contributor.id}
+              onClick={() => this.removeContributor(contributor.id)}/>
             <img className="img-portrait" src={contributor.photo}/>
             <div className="contributor-name">
               {contributor.firstName}<br/>
@@ -55,9 +57,14 @@ class Contributor extends React.Component{
       );
     }
     return (
-      <div className="contributors">
-        {contributors}
-      </div>
+      <ReactCSSTransitionGroup
+        component="div"
+        className="contributors"
+        transitionName="example"
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}>
+          {contributors}
+      </ReactCSSTransitionGroup>
     );
   }
 
